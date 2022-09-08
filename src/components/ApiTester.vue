@@ -47,12 +47,16 @@ export default defineComponent({
     @submit.prevent="onSubmit"
     class="tester"
   >
-    <h1 class="tester__header">
+    <h1
+      class="tester__header"
+      data-spec="header"
+    >
       Movie API tester
     </h1>
 
     <button
       class="tester__button"
+      data-spec="button"
       @click="loadRandomMovie"
     >
       Get movie data~!
@@ -64,6 +68,7 @@ export default defineComponent({
       <p
         v-if="error"
         class="tester__error"
+        data-spec="error"
       >
         {{ error }}
       </p>
@@ -77,11 +82,17 @@ export default defineComponent({
       v-if="movie"
       class="movie"
     >
-      <h2 class="movie__title">
+      <h2
+        class="movie__title"
+        data-spec="movie-title"
+      >
         {{ movie.title }}
       </h2>
 
-      <p class="movie__description">
+      <p
+        class="movie__description"
+        data-spec="movie-description"
+      >
         {{ movie.description }}
       </p>
 
@@ -89,6 +100,7 @@ export default defineComponent({
         :src="movie.poster_url"
         :alt="`${movie.title} poster`"
         class="movie__poster"
+        data-spec="movie-image"
       />
     </article>
   </transition>
